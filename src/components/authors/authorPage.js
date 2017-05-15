@@ -6,7 +6,7 @@ var AuthorList = require('./authorList');
 
 //this page's purpose is to call the api, load the basic body and 
 //call the child which has the list
-var Authors = React.createClass({
+var AuthorPage = React.createClass({
 	getInitialState: function() {
 		return {
 			authors: []
@@ -21,15 +21,16 @@ var Authors = React.createClass({
 		}
 	},
 
+	//if "author" is null, with poroptypes we can generate error in chrome console
 	render: function(){
 		return (
 			<div>
 				<h1>List of Authors</h1>
-				<AuthorList authors={this.state.authors} />
+				<AuthorList authors={this.state.authors}/> 
 			</div>
 		);
 	}
 
 });
 
-module.exports = Authors;
+module.exports = AuthorPage;

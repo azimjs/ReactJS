@@ -34210,6 +34210,12 @@ module.exports = About;
 var React = require('react');
 
 var AuthorList = React.createClass({displayName: "AuthorList",
+	//authorList always require "authors" as properties, so using propTypes
+	//it will show error up in chromeconsole when property is not there 
+	propTypes: {
+		authors: React.PropTypes.array.isRequired
+	},
+
 	render: function() {
 		var createAuthorRow = function(author) {
 			return (
@@ -34246,7 +34252,7 @@ var AuthorList = require('./authorList');
 
 //this page's purpose is to call the api, load the basic body and 
 //call the child which has the list
-var Authors = React.createClass({displayName: "Authors",
+var AuthorPage = React.createClass({displayName: "AuthorPage",
 	getInitialState: function() {
 		return {
 			authors: []
@@ -34261,6 +34267,7 @@ var Authors = React.createClass({displayName: "Authors",
 		}
 	},
 
+	//if "author" is null, with poroptypes we can generate error in chrome console
 	render: function(){
 		return (
 			React.createElement("div", null, 
@@ -34272,7 +34279,7 @@ var Authors = React.createClass({displayName: "Authors",
 
 });
 
-module.exports = Authors;
+module.exports = AuthorPage;
 
 },{"../../api/authorApi":159,"./authorList":162,"react":158}],164:[function(require,module,exports){
 "use strict";

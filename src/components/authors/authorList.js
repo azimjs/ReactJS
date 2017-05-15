@@ -3,6 +3,12 @@
 var React = require('react');
 
 var AuthorList = React.createClass({
+	//authorList always require "authors" as properties, so using propTypes
+	//it will show error up in chromeconsole when property is not there 
+	propTypes: {
+		authors: React.PropTypes.array.isRequired
+	},
+
 	render: function() {
 		var createAuthorRow = function(author) {
 			return (
